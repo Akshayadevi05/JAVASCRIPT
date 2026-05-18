@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colours</title>
+</head>
+<body>
+ <h1 id="result">Click the button</h1>
+ 
+ <button onclick="showColour()">Generate Color</button>
+
+ <script>
+    const Colors = ["Red", "Yellow", "Green", "Peach", "Black"];
+
+    function showColour() {
+        const randomIndex = Colors[Math.floor(Math.random() * Colors.length)];
+
+        // const randomColor = Colors[randomIndex];
+
+        document.getElementById("result").innerText= "Raandom Color: "  + randomIndex;
+    }
+ </script>
+</body>
+</html>
