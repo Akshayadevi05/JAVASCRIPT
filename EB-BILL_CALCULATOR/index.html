@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
+  <title>EB Bill Calculator</title>
+
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>EB Bill Calculator</h2>
+
+    <input type="number" id="units" placeholder="Enter units consumed" />
+
+    <button onclick="calculateBill()">Calculate Bill</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateBill() {
+      let units = parseFloat(document.getElementById("units").value);
+      let bill = 0;
+
+      if (units <= 50) {
+        bill = units * 0.75;
+      } 
+      else if (units <= 150) {
+        bill = (50 * 0.75) + ((units - 50) * 1.00);
+      } 
+      else if (units <= 250) {
+        bill = (50 * 0.75) +
+               (100 * 1.00) +
+               ((units - 150) * 1.30);
+      } 
+      else {
+        bill = (50 * 0.75) +
+               (100 * 1.00) +
+               (100 * 1.30) +
+               ((units - 250) * 1.50);
+      }
+
+      document.getElementById("result").innerHTML =
+        "Total EB Bill = Rs. " + bill.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
